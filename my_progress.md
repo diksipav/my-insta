@@ -1,0 +1,4 @@
+- **25.09.2025.** I developed a stronger understanding of TLS termination. Most managed hosting platforms terminate HTTPS at an edge server, load balancer, or reverse proxy before forwarding the request to the backend application. The proxy typically preserves information about the original client request through headers such as X-Forwarded-For (client IP) and X-Forwarded-Proto (original protocol). A request may pass through multiple proxies, so before deployment I need to check my hosting provider’s proxy topology and configure Express’s trust proxy setting accordingly. Rate limiting can happen in Cloudflare (or load balancer/proxy) - IP rate limiting, and it can happen on the server (express rate-limit middleware) - limit by userId etc. Wow, there is so much to security, attackers can manipulate X-Forwarded-For and -Proto etc, can trick our server and bypass rate-limit...
+
+
+TODO: check best practices for graceful shotdown and server.closeAllConnections().

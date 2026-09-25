@@ -1,5 +1,5 @@
 {
-  "name": "instagram",
+  "name": "my-insta",
   "private": true,
   "scripts": {
     "lint": "biome check",
