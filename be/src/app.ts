@@ -1,5 +1,6 @@
 import cookieParser from "cookie-parser";
 import express from "express";
+import { errorHandler, notFound } from "./middleware/errors.ts";
 
 export function createApp() {
   const app = express();
@@ -16,6 +17,9 @@ export function createApp() {
   app.get("/health", (_req, res) => {
     res.json({ ok: true });
   });
+
+  app.use(notFound);
+  app.use(errorHandler);
 
   return app;
 }
